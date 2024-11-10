@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:keyp_app/src/todos/todo_view.dart';
+import 'package:keyp_app/src/todos/todo.dart';
+import 'package:keyp_app/src/todos/todos_view.dart';
 
-import 'sample_feature/sample_item_details_view.dart';
-import 'sample_feature/sample_item_list_view.dart';
 import 'settings/settings_controller.dart';
 import 'settings/settings_view.dart';
 
@@ -69,11 +70,18 @@ class MyApp extends StatelessWidget {
                 switch (routeSettings.name) {
                   case SettingsView.routeName:
                     return SettingsView(controller: settingsController);
-                  case SampleItemDetailsView.routeName:
-                    return const SampleItemDetailsView();
-                  case SampleItemListView.routeName:
+                  case TodoView.routeName:
+                    return TodoView();
+                  case TodosView.routeName:
                   default:
-                    return const SampleItemListView();
+                    return TodosView(
+                        todos: List.generate(
+                      20,
+                      (i) => Todo(
+                        i,
+                        'Todo $i',
+                      ),
+                    ));
                 }
               },
             );
