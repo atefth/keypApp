@@ -1,7 +1,6 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:keyp_app/src/todos/todo.dart';
+import 'package:keyp_app/models/todo.dart';
+import 'package:keyp_app/screens/partials/app_bar_view.dart';
 
 class TodoView extends StatelessWidget {
   final TextEditingController _titleController = TextEditingController();
@@ -18,9 +17,7 @@ class TodoView extends StatelessWidget {
         ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>);
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Todo ${todo.id}'),
-      ),
+      appBar: buildAppBar(context, 'Todo ${todo.id}'),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(

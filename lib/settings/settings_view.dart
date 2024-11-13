@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:keyp_app/constants/colors.dart';
+import 'package:keyp_app/screens/partials/app_bar_view.dart';
 
 import 'settings_controller.dart';
 
@@ -16,10 +18,8 @@ class SettingsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.blue,
-        title: const Text('Settings'),
-      ),
+      backgroundColor: bgColor,
+      appBar: buildAppBar(context, 'Settings'),
       body: Padding(
         padding: const EdgeInsets.all(16),
         // Glue the SettingsController to the theme selection DropdownButton.
